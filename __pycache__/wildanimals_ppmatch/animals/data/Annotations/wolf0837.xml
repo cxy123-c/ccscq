@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<annotation>
+	<folder>中国狼</folder>
+	<filename>wolf0837.jpg</filename>
+	<path>C:\Users\11968\Desktop\mark\image\中国狼\0837.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3840</width>
+		<height>2160</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>wolf</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1016</xmin>
+			<ymin>833</ymin>
+			<xmax>2119</xmax>
+			<ymax>1846</ymax>
+		</bndbox>
+	</object>
+</annotation>

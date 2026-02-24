@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<annotation>
+	<folder>熊猫</folder>
+	<filename>panda0481.jpg</filename>
+	<path>E:\mark\image\熊猫\0481.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3840</width>
+		<height>2160</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>panda</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>781</xmin>
+			<ymin>220</ymin>
+			<xmax>1383</xmax>
+			<ymax>739</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<annotation>
+	<folder>金丝猴</folder>
+	<filename>monkey0385.jpg</filename>
+	<path>E:\mark\image\金丝猴\0385.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3840</width>
+		<height>2160</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>monkey</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1388</xmin>
+			<ymin>255</ymin>
+			<xmax>1966</xmax>
+			<ymax>890</ymax>
+		</bndbox>
+	</object>
+</annotation>

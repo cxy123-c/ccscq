@@ -1,0 +1,116 @@
+# ====================== 0.0.0版本最终纯净版（无多余参数） ======================
+architecture: YOLODetector
+num_classes: 3
+save_dir: output/wildanimals_detector
+
+Global:
+  dataset_dir: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/animals/data
+  pretrained_model: https://paddledet.bj.bcebos.com/models/ppyoloe_crn_l_300e_coco.pdparams
+  epochs: 10
+  batch_size: 2
+  base_lr: 0.00025
+  log_iter: 10
+  use_gpu: false
+  class_num: 3
+  worker_num: 0  # 匹配源码的worker_num
+
+# 0.0.0版本VOCDataSet仅支持以下4个参数（核心！）
+TrainDataset:
+  name: VOCDataSet
+  dataset_dir: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/animals/data
+  anno_path: ImageSets/Main/train.txt
+  image_dir: Images
+  label_list: label_list.txt  # 仅支持label_list，不支持classes/anno_dir
+
+# TrainReader仅保留旧版支持的参数
+TrainReader:
+  sample_transforms:
+    - Decode: {}
+    - RandomFlip: {prob: 0.5}
+    - RandomResize: {target_size: [640, 640], interp: 2, keep_ratio: true}
+    - NormalizeImage:
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+        is_scale: true
+        norm_type: 'mean_std'
+  batch_size: 2
+  shuffle: true
+  drop_last: true
+  worker_num: 0
+
+# 验证集和训练集参数完全一致（无多余参数）
+ValDataset:
+  name: VOCDataSet
+  dataset_dir: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/animals/data
+  anno_path: ImageSets/Main/val.txt
+  image_dir: Images
+  label_list: label_list.txt
+
+EvalReader:
+  sample_transforms:
+    - Decode: {}
+    - Resize: {target_size: [640, 640], interp: 2, keep_ratio: true}
+    - NormalizeImage:
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+        is_scale: true
+        norm_type: 'mean_std'
+  batch_size: 1
+  worker_num: 0
+
+# 测试集仅保留旧版支持的参数
+TestReader:
+  inputs_def:
+    image_shape: [3, 640, 640]
+  sample_transforms:
+    - Decode: {}
+    - Resize: {target_size: [640, 640], keep_ratio: true}
+    - NormalizeImage:
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+        is_scale: true
+        norm_type: 'mean_std'
+  batch_size: 1
+  worker_num: 0
+
+# 模型配置（旧版兼容）
+Model:
+  architecture: ${architecture}
+  Backbone:
+    name: CSPResNet_l
+    variant: d
+    return_idx: [1, 2, 3]
+  Neck:
+    name: CustomCSPPAN
+    in_channels: [384, 768, 1536]
+    out_channels: 768
+  Head:
+    name: YOLOHead
+    num_classes: ${num_classes}
+    in_channels: [768, 768, 768]
+    feat_channels: 768
+    conf_thresh: 0.5
+    test_cfg:
+      nms:
+        name: MultiClassNMS
+        keep_top_k: 100
+        score_threshold: 0.01
+        nms_threshold: 0.6
+
+# 优化器配置（硬编码参数）
+Optimizer:
+  name: AdamW
+  base_lr: 0.00025
+  lr_scheduler:
+    name: CosineAnnealingDecay
+    T_max: 10
+    eta_min: 1e-5
+  weight_decay: 0.0005
+  grad_clip:
+    clip_norm: 10.0
+
+# 评估配置（旧版兼容）
+Eval:
+  eval_epoch: 1
+  metric: VOC
+  save_best_model: true

@@ -2,8 +2,8 @@
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="f6983782ce03f1372d7aea699a26a3e9f668ed14",
-    base_url="https://api-fdk9ibp3l0meo7k9.aistudio-app.com/v1"
+    api_key="",
+    base_url=""
 )
 
 completion = client.chat.completions.create(
@@ -20,3 +20,4 @@ for chunk in completion:
         print(chunk.choices[0].delta.reasoning_content, end="", flush=True)
     else:
         print(chunk.choices[0].delta.content, end="", flush=True)
+       

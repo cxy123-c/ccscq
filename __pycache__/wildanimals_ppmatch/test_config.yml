@@ -1,0 +1,42 @@
+Global:
+  dataset_dir: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/animals/data
+  output_dir: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/output
+  epochs: 1
+  batch_size: 2
+  use_gpu: false
+  class_num: 3
+
+Model:
+  architecture: YOLODetector  # 仅保留必选架构
+  Backbone:
+    name: CSPResNet_l
+    variant: d
+  Neck:
+    name: CustomCSPPAN
+  Head:
+    name: YOLOHead
+    num_classes: ${Global.class_num}
+
+Dataset:
+  train:
+    dataset: VOCDetection
+    dataset_dir: ${Global.dataset_dir}
+    classes: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/animals/data/label_list.txt
+    anno_path: ImageSets/Main/train.txt
+    image_dir: Images
+    anno_dir: xml
+
+  val:
+    dataset: VOCDetection
+    dataset_dir: ${Global.dataset_dir}
+    classes: ${Dataset.train.classes}
+    anno_path: ImageSets/Main/val.txt
+    image_dir: Images
+    anno_dir: xml
+
+Optimizer:
+  name: AdamW
+  base_lr: 0.00025
+
+Eval:
+  eval_epoch: 1
