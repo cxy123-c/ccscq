@@ -35,8 +35,8 @@ def add_img_suffix(file_path, suffix=".jpg"):
 # 配置你的文件路径
 if __name__ == "__main__":
     file_paths = [
-        r"C:\Users\ZLSHLT2601004\try dlam\__pycache__\wildanimals_ppmatch\animals\data\ImageSets\Main\train.txt",
-        # r"C:\Users\ZLSHLT2601004\try dlam\__pycache__\wildanimals_ppmatch\animals\data\ImageSets\Main\val.txt"
+        r"C:\Users\ZLSHLT2601004\try_dlam\competition\wildanimals_ppmatch\animals\data\ImageSets\Main\train.txt",
+        # r"C:\Users\ZLSHLT2601004\try_dlam\competition\wildanimals_ppmatch\animals\data\ImageSets\Main\val.txt"
     ]
     # 如果你的图片是.png，改成suffix=".png"
     for path in file_paths:

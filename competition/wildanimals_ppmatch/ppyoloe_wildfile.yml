@@ -4,7 +4,7 @@ num_classes: 3
 save_dir: output/wildanimals_detector
 
 Global:
-  dataset_dir: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/animals/data
+  dataset_dir: C:\Users\ZLSHLT2601004\try_dlam\competition\wildanimals_ppmatch/animals/data
   pretrained_model: https://paddledet.bj.bcebos.com/models/ppyoloe_crn_l_300e_coco.pdparams
   epochs: 10
   batch_size: 2
@@ -41,7 +41,7 @@ TrainReader:
 # 验证集和训练集参数完全一致（无多余参数）
 ValDataset:
   name: VOCDataSet
-  dataset_dir: C:/Users/ZLSHLT2601004/try dlam/__pycache__/wildanimals_ppmatch/animals/data
+  dataset_dir: C:\Users\ZLSHLT2601004\try_dlam\competition\wildanimals_ppmatch/animals/data
   anno_path: ImageSets/Main/val.txt
   image_dir: Images
   label_list: label_list.txt

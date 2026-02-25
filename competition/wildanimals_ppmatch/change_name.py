@@ -61,8 +61,8 @@ def add_class_suffix(file_path, class_mapping=None):
 if __name__ == "__main__":
     # 1. 配置要处理的文件路径（改成你的实际路径）
     file_paths = [
-        r"C:\Users\ZLSHLT2601004\try dlam\__pycache__\wildanimals_ppmatch\animals\data\ImageSets\Main\train.txt",
-        r"C:\Users\ZLSHLT2601004\try dlam\__pycache__\wildanimals_ppmatch\animals\data\ImageSets\Main\val.txt"
+        r"C:\Users\ZLSHLT2601004\try_dlam\competition\wildanimals_ppmatch\animals\data\ImageSets\Main\train.txt",
+        r"C:\Users\ZLSHLT2601004\try_dlam\competition\wildanimals_ppmatch\animals\data\ImageSets\Main\val.txt"
     ]
     
     # 2. 可选：自定义类别映射（如果前缀和类别名不一致时用）
